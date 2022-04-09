@@ -52,7 +52,7 @@ ReactDOM.render(
         <Route path="/" element={<Home />} exact />
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
-      </Routes>
+</Routes>
 ```
 
 - Create the some pages like about home contact in the src/pages/home.js about.js contact.js

@@ -27,3 +27,35 @@ This is the most popular term in React, which changed many things that were alre
 In addition to state, you can do a series of activities to simplify functions within React, such as having a mini-state manager with ContextAPI that is an alternative to Redux, controlling what will be modified, and turning Hooks into the preferred tools of many developers.
 I hope these concepts have become clearer to you! Understanding these will make your journey much easier and smoother.
 ```
+
+
+
+
+# Chapter
+### Starting with Routes
+- Install the **npm install react-routes-som**
+```
+npm install react-router-dom@6
+```
+- First Add BrowserRouter in the Index.js 
+```
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+```
+- Second add the Routes tag and inside the tag add route with path 
+```
+<Routes>
+        <Route path="/" element={<Home />} exact />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+      </Routes>
+```
+
+- Create the some pages like about home contact in the src/pages/home.js about.js contact.js
+
+
+

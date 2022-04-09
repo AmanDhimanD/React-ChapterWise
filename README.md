@@ -56,7 +56,7 @@ ReactDOM.render(
 ```
 
 - Create the some pages like about home contact in the src/pages/home.js about.js contact.js
-- Add some tag data like 
+- Add some tag data, For the navitage to the pages easily 
 ```
 <Link to="/about">Click About</Link>
 <Link to="/contact">Click contact</Link>

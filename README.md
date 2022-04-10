@@ -2,5 +2,5 @@
 - Router 
 - Link to 
 - Pending 
-#### add Copy paste Disable 
+#### add Copy paste Disable - (Main)
 - and some advance concepts

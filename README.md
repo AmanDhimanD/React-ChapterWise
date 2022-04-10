@@ -105,3 +105,4 @@ const Home = () => {
   );
 };
 ```
+- Import the CSS files in the Js file

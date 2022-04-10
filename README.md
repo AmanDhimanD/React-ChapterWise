@@ -83,4 +83,25 @@ ReactDOM.render(
         </Nav.Link>
       </Nav>
 ```
-
+# Chpater 2
+### Style CSS
+- Inline 
+```
+ <h1 style={{backgroundColor: "lightblue"}}>Hello Style!</h1>
+```
+- As an Object 
+```
+const Home = () => {
+  const myStyle = {
+    padding: 50,
+  }
+  const name = "RayneCoder"
+  return (
+    <div className="" style={myStyle}>
+      <Container>
+        <h2>Hello,{name}</h2>
+      </Container>
+    </div>
+  );
+};
+```

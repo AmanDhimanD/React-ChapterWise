@@ -61,7 +61,7 @@ ReactDOM.render(
 <Link to="/about">Click About</Link>
 <Link to="/contact">Click contact</Link>
 ```
-## Example of Step 
+## Example:- Step Routing in ReactJS
 ###### After Install the React Router Dom V6 
 - in **index.js** add BrowserRouter
 - in **App.js** first add the Navbar as a tag then add Routes and then inside it add Route with *path* and *element*

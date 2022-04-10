@@ -61,5 +61,26 @@ ReactDOM.render(
 <Link to="/about">Click About</Link>
 <Link to="/contact">Click contact</Link>
 ```
-
+## Example of Step 
+###### After Install the React Router Dom V6 
+- in **index.js** add BrowserRouter
+- in **App.js** first add the Navbar as a tag then add Routes and then inside it add Route with *path* and *element*
+```
+      <TopNavbar title="RayneCoder" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+```
+- in **TopNavbar** add the Link as a link like -> *as={Link}* in the Nav.Link
+```
+      <Nav className="me-auto">
+        <Nav.Link as={Link} to="/">
+          Home
+        </Nav.Link>
+        <Nav.Link as={Link} to="/about">
+          About
+        </Nav.Link>
+      </Nav>
+```
 

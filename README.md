@@ -106,3 +106,6 @@ const Home = () => {
 };
 ```
 - Import the CSS files in the Js file
+
+# Chpater 3
+### Hooks

@@ -4,7 +4,7 @@
 - 2. React Router
 
 
-```
+
 # 1. Props
 Props come from properties and are a fundamental concept that underlies a lot of things in React. With it, we can transmit data between components. This data can have any type ( String, Int, Array, Object, etc.). This way, we can create and style components without the need for static values.
 # 2. State
@@ -26,7 +26,7 @@ There are 2 types of components in React, the Class-based and the Functional com
 This is the most popular term in React, which changed many things that were already in existence before. The functional components acquired a large autonomy, as before we couldn’t create states in functional components and things like that, but now it’s simple.
 In addition to state, you can do a series of activities to simplify functions within React, such as having a mini-state manager with ContextAPI that is an alternative to Redux, controlling what will be modified, and turning Hooks into the preferred tools of many developers.
 I hope these concepts have become clearer to you! Understanding these will make your journey much easier and smoother.
-```
+
 
 
 

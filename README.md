@@ -5,27 +5,29 @@
 
 
 ```
-1. Props
-Props come from properties and are a fundamental concept that underlies a lot of things in React. With it, we can transmit data between components. This data can have any type ( String, Int, Array, Object, etc.). This way, we can create and style components without the need for static values.
-2. State
-Through this concept, it is possible to have reactive components that are capable of storing values. We also have the idea of immutability here, according to which it is recommended never to make changes directly to the component’s state. In other words, avoid changing the value manually, as this ends up generating an error and crashing your component. So the ideal is that there is an evolution of this state.
-Thus, within the same project, we can have several different values ​​associated with the component. Since its structure is very flexible, it can receive almost any data.
-3. setState
-As I said above, according to immutability, it is not recommended to take the value and change it manually. So, to avoid this problem, the state function makes modifications to components. Whenever an element of the state is modified, the component is re-rendered, changing only what is necessary. This is important as you will often have states changing their value, so we need to ensure that everything will render correctly.
-4. Life Cycles
-Lifecycles represent the moments of the component during its use. Basically, there are three different moments:
-Mounting
-Update
-Disassembly
-From there, we control when actions can take place. If we want certain data to be loaded before creating the component structure, we can use a function called componentDidMount, and so on.
-5. Components
-Components are the stars of almost every Framework or library because we have code that can be easily reused anywhere in the application.
-This code has its own internal logic, but it can still communicate with other components. These components can create the entire visual part of the project, but they can also have some business logic contained in Frontend.
-There are 2 types of components in React, the Class-based and the Functional components. The choice depends on what you are most comfortable using and whether you have mastered the concepts of Hooks (in the case of Functional components).
-6. Hooks
-This is the most popular term in React, which changed many things that were already in existence before. The functional components acquired a large autonomy, as before we couldn’t create states in functional components and things like that, but now it’s simple.
-In addition to state, you can do a series of activities to simplify functions within React, such as having a mini-state manager with ContextAPI that is an alternative to Redux, controlling what will be modified, and turning Hooks into the preferred tools of many developers.
-I hope these concepts have become clearer to you! Understanding these will make your journey much easier and smoother.
+<ol>
+<li class="has-line-data" data-line-start="0" data-line-end="2">Props<br>
+Props come from properties and are a fundamental concept that underlies a lot of things in React. With it, we can transmit data between components. This data can have any type ( String, Int, Array, Object, etc.). This way, we can create and style components without the need for static values.</li>
+<li class="has-line-data" data-line-start="2" data-line-end="5">State<br>
+Through this concept, it is possible to have reactive components that are capable of storing values. We also have the idea of immutability here, according to which it is recommended never to make changes directly to the component’s state. In other words, avoid changing the value manually, as this ends up generating an error and crashing your component. So the ideal is that there is an evolution of this state.<br>
+Thus, within the same project, we can have several different values ​​associated with the component. Since its structure is very flexible, it can receive almost any data.</li>
+<li class="has-line-data" data-line-start="5" data-line-end="7">setState<br>
+As I said above, according to immutability, it is not recommended to take the value and change it manually. So, to avoid this problem, the state function makes modifications to components. Whenever an element of the state is modified, the component is re-rendered, changing only what is necessary. This is important as you will often have states changing their value, so we need to ensure that everything will render correctly.</li>
+<li class="has-line-data" data-line-start="7" data-line-end="13">Life Cycles<br>
+Lifecycles represent the moments of the component during its use. Basically, there are three different moments:<br>
+Mounting<br>
+Update<br>
+Disassembly<br>
+From there, we control when actions can take place. If we want certain data to be loaded before creating the component structure, we can use a function called componentDidMount, and so on.</li>
+<li class="has-line-data" data-line-start="13" data-line-end="17">Components<br>
+Components are the stars of almost every Framework or library because we have code that can be easily reused anywhere in the application.<br>
+This code has its own internal logic, but it can still communicate with other components. These components can create the entire visual part of the project, but they can also have some business logic contained in Frontend.<br>
+There are 2 types of components in React, the Class-based and the Functional components. The choice depends on what you are most comfortable using and whether you have mastered the concepts of Hooks (in the case of Functional components).</li>
+<li class="has-line-data" data-line-start="17" data-line-end="21">Hooks<br>
+This is the most popular term in React, which changed many things that were already in existence before. The functional components acquired a large autonomy, as before we couldn’t create states in functional components and things like that, but now it’s simple.<br>
+In addition to state, you can do a series of activities to simplify functions within React, such as having a mini-state manager with ContextAPI that is an alternative to Redux, controlling what will be modified, and turning Hooks into the preferred tools of many developers.<br>
+I hope these concepts have become clearer to you! Understanding these will make your journey much easier and smoother.</li>
+</ol>
 ```
 
 

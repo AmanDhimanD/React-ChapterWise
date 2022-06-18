@@ -31,7 +31,7 @@ I hope these concepts have become clearer to you! Understanding these will make 
 
 
 
-# Chapter
+# Chapter 1
 ### Starting with Routes
 - Install the **npm install react-routes-som**
 ```

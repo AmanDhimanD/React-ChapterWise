@@ -109,7 +109,7 @@ const Home = () => {
 
 # Chpater 3
 ### Hooks
--- Import useState form the react 
+- Import useState form the react 
 ```
 import React, { useState } from 'react';
 ```

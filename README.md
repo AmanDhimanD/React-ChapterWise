@@ -136,6 +136,27 @@ function Example() {
 ```
 npm i axios
 ```
-- 
+- API JSON files ( Get Key Access)
 ```
+unplash 
+news api and so on 
+```
+- Create a function to write the API endpoints 
+```
+ const fetchNewsIndia = () => {
+    //end points
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=in&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
+      )
+      .then((response) => {
+        //console.log(response); //for cheack on Console 
+        setNews(response.data.articles);
+      })
+      .catch((err) => {});
+  };
+```
+- use useState to store the data
+```
+const [news, setNews] = useState([]); //to save the response
 ```

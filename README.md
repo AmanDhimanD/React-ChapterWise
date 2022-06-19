@@ -131,3 +131,11 @@ function Example() {
   );
 }
 ```
+# Chapter 4 Axios 
+- First install the Axios library 
+```
+npm i axios
+```
+- 
+```
+```

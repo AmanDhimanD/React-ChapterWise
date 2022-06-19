@@ -180,51 +180,10 @@ const FetchNews = () => {
       })
       .catch((err) => {});
   };
-  const fetchNewsAustalia = () => {
-    //end points
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=au&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
-      )
-      .then((response) => {
-        //console.log(response);
-        setNews(response.data.articles);
-      })
-      .catch((err) => {});
-  };
-  const fetchNewsAmerica = () => {
-    //end points
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=us&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
-      )
-      .then((response) => {
-        //console.log(response);
-        setNews(response.data.articles);
-      })
-      .catch((err) => {});
-  };
-  const fetchNewsUkraine = () => {
-    //end points
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=ua&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
-      )
-      .then((response) => {
-        //console.log(response);
-        setNews(response.data.articles);
-      })
-      .catch((err) => {});
-  };
+  
   return (
     <>
-      <div className="container my-4">
-        <div className="row">
-          <div className="col-4">
-            {/* <button className="btn btn-primary">Fetch News</button> */}
-          </div>
-        </div>
-      </div>
+    {/* onClick call the Function */}
       <div className="container">
         <div className="row">
           <div className="col-5">
@@ -233,28 +192,12 @@ const FetchNews = () => {
               <button className="btn btn-primary mx-1" onClick={fetchNewsIndia}>
                 India
               </button>
-              <button
-                className="btn btn-primary mx-1"
-                onClick={fetchNewsAustalia}
-              >
-                Austalia
-              </button>
-              <button
-                className="btn btn-primary mx-1"
-                onClick={fetchNewsAmerica}
-              >
-                America
-              </button>
-              <button
-                className="btn btn-primary mx-1"
-                onClick={fetchNewsUkraine}
-              >
-                Ukraine
-              </button>
             </h4>
           </div>
         </div>
       </div>
+      
+      {/* Display the data */}
       <div className="container">
         <div className="row">
           {news.map((value) => {

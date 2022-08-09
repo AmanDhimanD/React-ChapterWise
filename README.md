@@ -226,3 +226,7 @@ const FetchNews = () => {
 export default FetchNews;
 
 ```
+# Chapter 5
+- Customize Hooks
+- Memo
+- useStates 

@@ -21,7 +21,7 @@
 <script>var Alert = ReactBootstrap.Alert;</script>
 
 ```
-and also this css link 
+and also add this CSS link in the Index.html page
 ```
 <link
   rel="stylesheet"

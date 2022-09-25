@@ -265,3 +265,10 @@ and also add this CSS link in the Index.html page
   crossorigin="anonymous"
 />
 ```
+- Use Routes with Link Tag 
+*Use Link tag without Nav.Link
+```
+  <Link to="/home" className="nav-item">Home</Link>
+  <Link to="/about" className="nav-item">About</Link>
+  <Link to="/contact" className="nav-item">Contact Us </Link>
+```

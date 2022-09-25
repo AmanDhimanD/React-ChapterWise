@@ -275,5 +275,6 @@ and also add this CSS link in the Index.html page
 
 - Use of the style as {{}} in the tag 
 ```
-Note: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, the styling in the example above is written inside two sets of curly braces {{}}.
+Note: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, 
+the styling in the example above is written inside two sets of curly braces {{}}.
 ```

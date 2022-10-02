@@ -289,4 +289,4 @@ import './Background.css
 - then we can direct use the Css in react app
 
 ## Using of Material UI in react 
-![DEV.to](https://dev.to/raynecoder/using-material-ui-in-react-project-30n5)
+- [DEV.to](https://dev.to/raynecoder/using-material-ui-in-react-project-30n5)

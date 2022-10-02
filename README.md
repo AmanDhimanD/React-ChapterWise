@@ -278,3 +278,12 @@ and also add this CSS link in the Index.html page
 Note: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, 
 the styling in the example above is written inside two sets of curly braces {{}}.
 ```
+
+## Import the css in the react 
+
+- write the direct name of the css file as the import format like
+```
+import './App.css'
+import './Background.css
+```
+- then we can direct use the Css in react app

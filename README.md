@@ -1,8 +1,8 @@
 ## React Notes
 # Basic Import / Export 
 - Two files 
--- 1. File 
--- 2. Function 
+- 1. File 
+- 2. Function 
 
 ### in File.js
 ```

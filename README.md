@@ -1,4 +1,35 @@
 ## React Notes
+# Basic Import / Export 
+- Two files 
+-- 1. File 
+-- 2. Function 
+
+### in File.js
+```
+import {sum,mul } from "./functions.mjs";
+
+console.log(sum(2, 3))
+console.log(mul(2, 3))
+
+```
+### in Function.js
+```
+
+// export function sum(a, b) {
+//     return (a+b)
+// }
+
+function sum(a, b) {
+    return (a + b)
+}
+function mul(a, b) {
+    return (a*b)
+}
+
+
+export { sum, mul }
+```
+
 
 # 1. State Control 
 ```

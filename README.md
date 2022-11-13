@@ -1,215 +1,295 @@
-## React Notes
-# Basic Import / Export 
-- Two files 
-- 1. File 
-- 2. Function 
+### React-ChapterWise
+- Start React chapter with diffrent Branches
+- 1. JSX
+- 2. React Router
 
-### in File.js
+
+
+# 1. Props
+Props come from properties and are a fundamental concept that underlies a lot of things in React. With it, we can transmit data between components. This data can have any type ( String, Int, Array, Object, etc.). This way, we can create and style components without the need for static values.
+# 2. State
+Through this concept, it is possible to have reactive components that are capable of storing values. We also have the idea of immutability here, according to which it is recommended never to make changes directly to the component’s state. In other words, avoid changing the value manually, as this ends up generating an error and crashing your component. So the ideal is that there is an evolution of this state.
+Thus, within the same project, we can have several different values ​​associated with the component. Since its structure is very flexible, it can receive almost any data.
+# 3. setState
+As I said above, according to immutability, it is not recommended to take the value and change it manually. So, to avoid this problem, the state function makes modifications to components. Whenever an element of the state is modified, the component is re-rendered, changing only what is necessary. This is important as you will often have states changing their value, so we need to ensure that everything will render correctly.
+# 4. Life Cycles
+Lifecycles represent the moments of the component during its use. Basically, there are three different moments:
+Mounting
+Update
+Disassembly
+From there, we control when actions can take place. If we want certain data to be loaded before creating the component structure, we can use a function called componentDidMount, and so on.
+# 5. Components
+Components are the stars of almost every Framework or library because we have code that can be easily reused anywhere in the application.
+This code has its own internal logic, but it can still communicate with other components. These components can create the entire visual part of the project, but they can also have some business logic contained in Frontend.
+There are 2 types of components in React, the Class-based and the Functional components. The choice depends on what you are most comfortable using and whether you have mastered the concepts of Hooks (in the case of Functional components).
+# 6. Hooks
+This is the most popular term in React, which changed many things that were already in existence before. The functional components acquired a large autonomy, as before we couldn’t create states in functional components and things like that, but now it’s simple.
+In addition to state, you can do a series of activities to simplify functions within React, such as having a mini-state manager with ContextAPI that is an alternative to Redux, controlling what will be modified, and turning Hooks into the preferred tools of many developers.
+I hope these concepts have become clearer to you! Understanding these will make your journey much easier and smoother.
+
+
+
+
+
+# Chapter 1
+### Starting with Routes
+- Install the **npm install react-routes-som**
 ```
-import {sum,mul } from "./functions.mjs";
-
-console.log(sum(2, 3))
-console.log(mul(2, 3))
-
+npm install react-router-dom@6
 ```
-### in Function.js
+- First Add BrowserRouter in the Index.js 
 ```
-
-// export function sum(a, b) {
-//     return (a+b)
-// }
-
-function sum(a, b) {
-    return (a + b)
-}
-function mul(a, b) {
-    return (a*b)
-}
-
-
-export { sum, mul }
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+```
+- Second add the Routes tag and inside the tag add route with path 
+```
+<Routes>
+        <Route path="/" element={<Home />} exact />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+</Routes>
 ```
 
-
-# 1. State Control 
+- Create the some pages like about home contact in the src/pages/home.js about.js contact.js
+- Add some tag data, For the navitage to the pages easily 
 ```
-import { useState } from "react";
-import "./App.css";
+<Link to="/about">Click About</Link>
+<Link to="/contact">Click contact</Link>
+```
+## Example:- Step Routing in ReactJS
+###### After Install the React Router Dom V6 
+- in **index.js** add BrowserRouter
+- in **App.js** first add the Navbar as a tag then add Routes and then inside it add Route with *path* and *element*
+```
+      <TopNavbar title="RayneCoder" />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+```
+- in **TopNavbar** add the Link as a link like -> *as={Link}* in the Nav.Link
+```
+      <Nav className="me-auto">
+        <Nav.Link as={Link} to="/">
+          Home
+        </Nav.Link>
+        <Nav.Link as={Link} to="/about">
+          About
+        </Nav.Link>
+      </Nav>
+```
+# Chpater 2
+### Style CSS
+- Inline 
+```
+ <h1 style={{backgroundColor: "lightblue"}}>Hello Style!</h1>
+```
+- As an Object 
+```
+const Home = () => {
+  const myStyle = {
+    padding: 50,
+  }
+  const name = "RayneCoder"
+  return (
+    <div className="" style={myStyle}>
+      <Container>
+        <h2>Hello,{name}</h2>
+      </Container>
+    </div>
+  );
+};
+```
+- Import the CSS files in the Js file
 
+# Chpater 3
+### Hooks
+- Import useState form the react 
+```
+import React, { useState } from 'react';
+```
+then 
+```
+import React, { useState } from 'react';
 
-function App() {
-  const [name, setName] = useState({ firstName: "", lastName: "" });
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          value={name.firstName}
-          onChange={(e) => setName({ ...name, firstName: e.target.value })}
-        />
-        <input
-          type="text"
-          value={name.lastName}
-          onChange={(e) => setName({ ...name, lastName: e.target.value })}
-        />
-        <h1> First Name is - {name.firstName} </h1>
-        <h1> Last Name is - {name.lastName} </h1>
-      </form>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
     </div>
   );
 }
-
-export default App;
-
-
 ```
-# 2. Use Effect API call
+# Chapter 4 
+### Axios 
+- First install the Axios library 
 ```
-// Api call using Hooks
-import axios from 'axios'
-import React from 'react'
-import { useState } from 'react'
-function UseEffect() {
-    const [posts, setPosts] = useState([])
-    useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-            .then(response => {
-                console.log(response.data);
-                setPosts(response.data)
-            })
-            .catch(err => {
-            
-            })
-    }
-
-    return (
-        <div>
-            <ul>
-                {
-                    posts.map(posts =><li key={posts.id}>{post.title}</li>)
-                }
-            </ul>
-        </div>
-    )
-}
-
-export default UseEffect
-
+npm i axios
 ```
-# 3. Increment/Decrement and Playsound
+- API JSON files ( Get Key Access)
 ```
-import { useState } from 'react';
-import './App.css';
-import Button from 'react-bootstrap/Button';
-import useSound from "use-sound";
-import mysound from './mysound.mp3';
+unplash 
+news api and so on 
+```
+- Create a function to write the API endpoints 
+```
+ const fetchNewsIndia = () => {
+    //end points
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=in&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
+      )
+      .then((response) => {
+        //console.log(response); //for cheack on Console 
+        setNews(response.data.articles);
+      })
+      .catch((err) => {});
+  };
+```
+- use useState to store the data
+```
+const [news, setNews] = useState([]);
+```
+- Complete Axios Example 
+```
+import React, { useState } from "react";
+import axios from "axios";
 
+const FetchNews = () => {
+  const [news, setNews] = useState([]); //to save the response
 
-function App() {
-  const state = useState();
-  const [count, setCount] = useState(0);
-  const Increment = () => {
-    setCount(count + 1);
-  }
-  const Decrement = () => {
-    if (count <= 0) {
-      count = 0
-    }
-    setCount(count - 1);
-  }
-  const Reset = () => {
-    setCount(0);
-  }
-  
-  const [playSound] = useSound(mysound);
+  const fetchNewsIndia = () => {
+    //end points
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=in&apiKey=0f7f878ac90f474ab45338e9dcc3ef2f"
+      )
+      .then((response) => {
+        console.log(response);
+        setNews(response.data.articles);
+      })
+      .catch((err) => {});
+  };
   
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Counter App</p>
-        <p>{count}</p>
-        <div>
-          <Button variant="secondary" onClick={Increment}>Increment</Button>{' '}
-          <Button variant="success" onClick={Decrement}>Decrement</Button>{' '}
-          <Button variant="warning" onClick={Reset}>Reset</Button>{' '}
-        </div>
-       <br/>
-        <Button onClick={playSound}>
-          Play Sound
-        </Button>
-        
-      </header>
-    </div>
-  );
-}
-
-export default App;
-
-```
-
-# 4. Weather API (setup)
-```
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {useState,useEffect} from 'react'
-import axios from 'axios'
-
-
-function App() {
-
-  const apiKey = "237f26ef48e0d8b465f9454a4ce0b3af";
-  const [inputCity, setInputCity] = useState({});
-  const [data, setData] = useState("")
-  
-
-  const getWeather = (cityName) => {
-    if (!cityName) {
-      return
-    }
-    const apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey
-    axios.get(apiURL).then((res) => {
-      console.log("Response", res)
-      setData(res.data)
-    }).catch((err) => {
-      console.log("Error", err)
-    })
-  }
-
-  const handleChangeInput = (e) => {
-    console.log("value", e.target.value)
-    setInputCity(e.target.value);
-  }
-  const handleSearch  = () => {
-    getWeather(inputCity)
-    
-  }
-    
-  // useEffect(() => {
-  //   getWeather()
-  // },[])
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="heading">Weather</h1>
-        <div className="d-grid gap-3 col-4 mt-4">
-          <input type="text" className='form-control' value={inputCity} onChange={handleChangeInput} />
-          <button className='btn btn-primary' type='button' onClick={handleSearch}>Search</button>
-           
-        </div>
-      </header>
-      {Object.keys(data).length > 0 &&
-        <div className='col-md-12 text-center mt-5'>
-          <div className="shadow rounded ">
-          <h3>{data?.name}</h3>
-          <h5>{data?.main?.temp}</h5>
+    <>
+    {/* onClick call the Function */}
+      <div className="container">
+        <div className="row">
+          <div className="col-5">
+            <h4>
+              Country News:-
+              <button className="btn btn-primary mx-1" onClick={fetchNewsIndia}>
+                India
+              </button>
+            </h4>
           </div>
         </div>
-}
-    </div>
-    
+      </div>
+      
+      {/* Display the data */}
+      <div className="container">
+        <div className="row">
+          {news.map((value) => {
+            return (
+              <div className="col-4 my-2">
+                <div className="card" style={{ width: "18rem;" }}>
+                  <img src={value.urlToImage} class="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">{value.tittle}</h5>
+                    <p className="card-text">{value.description}</p>
+                    <a href={value.url} className="btn btn-primary">
+                      Read more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </>
   );
-}
+};
 
-export default App;
+export default FetchNews;
 
 ```
+# Chapter 5
+- Customize Hooks
+- Memo
+- useStates 
+
+
+
+# React Bootstrap 
+## Step to use React bootstrap in react file with Routers 
+
+### Steps
+- Install React Bootstrap 
+```
+  npm install react-bootstrap bootstrap
+```
+- Add these Links into the index.html page 
+* path --  public -> index.js
+```
+<script src="https://unpkg.com/react/umd/react.production.min.js" crossorigin></script>
+<script
+  src="https://unpkg.com/react-dom/umd/react-dom.production.min.js"
+  crossorigin>
+</script>
+<script
+  src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
+  crossorigin>
+</script>
+<script>var Alert = ReactBootstrap.Alert;</script>
+
+```
+and also add this CSS link in the Index.html page
+```
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+  crossorigin="anonymous"
+/>
+```
+- Use Routes with Link Tag 
+- ***Use Link tag insead of Nav.Link***
+```
+  <Link to="/home" className="nav-item">Home</Link>
+  <Link to="/about" className="nav-item">About</Link>
+  <Link to="/contact" className="nav-item">Contact Us </Link>
+```
+
+- Use of the style as {{}} in the tag 
+```
+Note: In JSX, JavaScript expressions are written inside curly braces, and since JavaScript objects also use curly braces, 
+the styling in the example above is written inside two sets of curly braces {{}}.
+```
+
+## Import the css in the react 
+
+- write the direct name of the css file as the import format like
+```
+import './App.css'
+import './Background.css
+```
+- then we can direct use the Css in react app
+
+## Using of Material UI in react 
+- [DEV.to](https://dev.to/raynecoder/using-material-ui-in-react-project-30n5)
+
+## Scroll the image effect 
+- Coding Help

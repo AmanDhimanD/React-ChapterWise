@@ -1,0 +1,5 @@
+There will 2 types of user groups: Employee and Admin (multiple)
+Employee group can be composed of roles like Software Engineer, Lead Engineer, Software QA, Lead QA, Engineering Manager, Engineering Director, HR,  IT Consultant, Finance Consultant, CTO, CEO etc.One employee can have multiple roles.
+Properties of Employee includes name, designation, allocated project, address, current location, skills (can be pre-populated list), profile photo, phone number,reporting manager (can be any other employee higher in band), Band (1, 2, 3, 4, 5, 6, 7 - Considering 1 as lowest), DOJ.
+Develop a UI portal and backend for the same.
+Create a hierarchical structure as a tree in the database with CEO at the root node and Band 1 as leaf node. Hierarchy goes as Band 1 ( Software Engineer/QA/IT Consultant/Finance Consultant) -> Band 2 (Lead Engineer and QA) -> Band 3 (Engineering Manager) -> Band 4 (Engineering Director) -> Band 5 (Vice President) -> Band 6(CTO) -> Band 7 (CEO)

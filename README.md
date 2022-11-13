@@ -146,3 +146,70 @@ function App() {
 export default App;
 
 ```
+
+# 4. Weather API (setup)
+```
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState,useEffect} from 'react'
+import axios from 'axios'
+
+
+function App() {
+
+  const apiKey = "237f26ef48e0d8b465f9454a4ce0b3af";
+  const [inputCity, setInputCity] = useState({});
+  const [data, setData] = useState("")
+  
+
+  const getWeather = (cityName) => {
+    if (!cityName) {
+      return
+    }
+    const apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey
+    axios.get(apiURL).then((res) => {
+      console.log("Response", res)
+      setData(res.data)
+    }).catch((err) => {
+      console.log("Error", err)
+    })
+  }
+
+  const handleChangeInput = (e) => {
+    console.log("value", e.target.value)
+    setInputCity(e.target.value);
+  }
+  const handleSearch  = () => {
+    getWeather(inputCity)
+    
+  }
+    
+  // useEffect(() => {
+  //   getWeather()
+  // },[])
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="heading">Weather</h1>
+        <div className="d-grid gap-3 col-4 mt-4">
+          <input type="text" className='form-control' value={inputCity} onChange={handleChangeInput} />
+          <button className='btn btn-primary' type='button' onClick={handleSearch}>Search</button>
+           
+        </div>
+      </header>
+      {Object.keys(data).length > 0 &&
+        <div className='col-md-12 text-center mt-5'>
+          <div className="shadow rounded ">
+          <h3>{data?.name}</h3>
+          <h5>{data?.main?.temp}</h5>
+          </div>
+        </div>
+}
+    </div>
+    
+  );
+}
+
+export default App;
+
+```

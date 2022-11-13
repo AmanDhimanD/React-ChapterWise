@@ -1,0 +1,73 @@
+//1.Method
+const arr=['a','b']
+const mapArr = arr.map(function(cArr){
+return cArr
+})
+//Create New array 
+console.log(cArr)
+
+//2. Method
+const mapArr = arr.map(cArr)
+
+function cArr(){
+return cArr
+}
+
+//Map the objects like json
+
+const data = [
+		{id:1, name:'A',class:'mba'},
+		{id:2, name:'B',class:'mca'}
+];
+//cValue is Current Value
+const newData = data.map((cValue)=>{
+	return `name is ${name}`
+};
+console.log(newData)
+
+
+
+
+//Hooks 
+
+function count(){
+const[count,setCount] = useState(0);
+
+function increaseCount(){
+	setCount(count+1)
+}
+return (
+	<div>
+	<p> Count: {count}</p>
+	<button onClick={increaseCount}>Gain</button>
+)
+}
+
+
+// Use States for objects 
+
+function UseStateForObject(){
+	const [name,setName] = useState({firstName:'',lastName:''})
+	return(
+
+	<div>
+	<form>
+	<input type="text" value={name.firstName} onChange={e=>setName({...name,firstName: e.target.value})} />
+	<input type="text" value={name.lastName} onChange={e=>setName({...name,lastName: e.target.value})} />
+	<h1> First Name is - {name.firstName} </h1>
+	<h1> Last Name is - {name.lastName} </h1>
+	</form>
+	</div>
+)
+}
+
+
+
+
+
+
+
+
+
+
+

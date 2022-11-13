@@ -32,7 +32,7 @@ export default App;
 
 
 ```
-2. Use Effect API call
+# 2. Use Effect API call
 ```
 // Api call using Hooks
 import axios from 'axios'

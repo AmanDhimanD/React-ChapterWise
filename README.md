@@ -293,3 +293,5 @@ import './Background.css
 
 ## Scroll the image effect 
 - Coding Help
+
+## Local Storage

@@ -295,3 +295,68 @@ import './Background.css
 - Coding Help
 
 ## Local Storage
+**in src/hooks/useLocalStorage.js**
+ ```
+ import React, { useState } from 'react'
+
+const useLocalStroage = (key,defaultValue) => {
+    const [storedValue, setStoredValue] = useState(() => {
+        try {
+            const value = localStorage.getItem(key);
+            if (value) {
+                return JSON.parse(value);
+            }
+            else {
+                localStorage.setItem(key, JSON.stringify(defaultValue))
+                return defaultValue
+            }
+        }
+        catch (error) {
+            return defaultValue
+        }
+    })
+    const setValue = newValue => {
+        try {
+            localStorage.setItem(key,JSON.stringify(newValue))
+        }
+        catch (error) {
+            console.log(error)
+        }
+        setStoredValue(newValue)
+    }
+    return [storedValue,setValue]
+}
+
+export default useLocalStroage
+ ```
+ 
+ *** in app.js ***
+ ```
+ import './App.css';
+import useLocalStorage from '../src/hooks/useLocalStroage'
+
+function App() {
+  const [message, setMessage] = useLocalStorage('message', 'Hello World')
+  const [token, setToken] = useLocalStorage('token', 123);
+
+  const handleSetDefault = () => {
+    setMessage("Hello World")
+    setToken(123)
+  }
+
+  return (
+    <>
+      <div>
+        <h3>{message}</h3>
+        <p>{token}</p>
+        <button onClick={()=>setMessage('Tata')}>Message</button>
+        <button onClick={()=>setToken(3434)}>Token</button>
+        <button onClick = {handleSetDefault}>default</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
+
+ ```

@@ -364,7 +364,7 @@ export default App;
 To create a login page in React, you can use React components and forms to handle the user input and authentication. Here is an example of how you might do this:
 
 Create a React component for the login form, which includes inputs for the user's email and password, as well as a submit button:
-Copy code
+```
 import React, { useState } from 'react';
 
 const LoginForm = () => {
@@ -396,8 +396,9 @@ const LoginForm = () => {
     </form>
   );
 };
+```
 In the handleSubmit method, authenticate the user by checking their email and password against a database or other source of truth. If the authentication is successful, redirect the user to the protected page. Otherwise, display an error message.
-Copy code
+```
 const handleSubmit = e => {
   e.preventDefault();
   // Authenticate the user
@@ -407,8 +408,9 @@ const handleSubmit = e => {
     // Display error message
   }
 };
+```
 Use the LoginForm component in the main login page, which can include additional components and layout elements as needed.
-Copy code
+```
 import React from 'react';
 import LoginForm from './LoginForm';
 
@@ -418,4 +420,5 @@ const LoginPage = () => (
     <LoginForm />
   </div>
 );
+```
 This is just one way to create a login page in React. There are many other ways you can do this, so be sure to explore your options and choose the approach that works best for your project.

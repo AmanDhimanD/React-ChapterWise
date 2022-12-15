@@ -422,3 +422,48 @@ const LoginPage = () => (
 );
 ```
 This is just one way to create a login page in React. There are many other ways you can do this, so be sure to explore your options and choose the approach that works best for your project.
+
+
+## Use of Parms hook (useParams)
+```
+import React from "react";
+
+import {
+BrowserRouter as Router,
+Switch,
+Route,
+useParams,
+} from "react-router-dom";
+
+function BlogPost() {
+let { id } = useParams();
+return <div style={{ fontSize: "50px" }}>
+		Now showing post {id}
+		</div>;
+}
+
+function Home() {
+return <h3>home page </h3>;
+}
+
+function App() {
+return (
+	<Router>
+	<Switch>
+		<Route path="/page/:id">
+		<BlogPost />
+		</Route>
+		<Route path="/">
+		<Home />
+		</Route>
+	</Switch>
+	</Router>
+);
+}
+
+export default App;
+
+```
+***NOTE***
+- if we enter the url as localhost:3000/12332 
+- it print 12332 on the page 

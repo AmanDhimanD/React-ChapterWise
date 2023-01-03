@@ -432,7 +432,7 @@ import {
 BrowserRouter as Router,
 Switch,
 Route,
-useParams,
+useParams
 } from "react-router-dom";
 
 function BlogPost() {
@@ -468,4 +468,4 @@ export default App;
 - if we enter the url as localhost:3000/12332 
 - it print 12332 on the page 
 
-# Upload the Screenshots Now
+***Upload the Screenshots Now***

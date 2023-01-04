@@ -469,3 +469,47 @@ export default App;
 - it print 12332 on the page 
 
 ***Upload the Screenshots Now***
+
+## Create a Json Server 
+
+```
+How to Make your own RestAPI ? 
+
+1. install JSON Server 
+	npm install -g json-server 
+
+--> -g is use for the globally install 
+
+2. create a file as DB.json 
+	{
+  "employees": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Steve",
+      "last_name": "Palmer",
+      "email": "steve@codingthesmartway.com"
+    },
+    {
+      "id": 3,
+      "first_name": "Ann",
+      "last_name": "Smith",
+      "email": "ann@codingthesmartway.com"
+    }
+  ]
+}
+
+3. Run the Server 
+json-server --watch DB.json 
+
+**you get the link of local server **
+--
+For change the Port use this command
+-->json-server --watch db.json --port 3004
+
+```

@@ -472,7 +472,6 @@ export default App;
 
 ## Create a Json Server 
 
-```
 How to Make your own RestAPI ? 
 
 1. install JSON Server 
@@ -512,7 +511,7 @@ json-server --watch DB.json
 For change the Port use this command
 -->json-server --watch db.json --port 3004
 
-```
+
 ## Create a Search Button with UseEffect() Hook 
 
 ```

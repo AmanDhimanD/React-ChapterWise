@@ -505,24 +505,24 @@ How to Make your own RestAPI ?
 }
 ```
 - 3. Run the Server 
-``` json-server --watch DB.json ```
+```json-server --watch DB.json```
 
 **you get the link of local server **
 --
-For change the Port use this command
+- For change the Port use this command
 ```json-server --watch db.json --port 3004```
 
 
 ## Create a Search Button with UseEffect() Hook 
 
-
--Step to Create a search Bar in react js 
+- Step to Create a search Bar in react js 
 ```https://www.freecodecamp.org/news/build-a-search-filter-using-react-and-react-hooks/amp/```
 -----
-1. use effect with axios 
-2. map the data
+- 1. use effect with axios 
+- 2. map the data
 
-Example:
+**Example:**
+ ```
  const [APIData, setAPIData] = useState([]);
   useEffect(() => {
     axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
@@ -543,17 +543,19 @@ Example:
         })}
     </div>
 
-
-3. useState for state managing 
+```
+- 3. useState for state managing 
+```
 const [searchInput, setSearchInput] = useState('');
 
 and function 
 const searchItems = () => {
         
 }
+```
 
-
-4. Complete Structure
+- 4. Complete Structure
+```
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -612,5 +614,4 @@ export default function TestingComponents() {
     </div>
   );
 }
-
 ```

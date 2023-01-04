@@ -474,12 +474,12 @@ export default App;
 
 How to Make your own RestAPI ? 
 
-1. install JSON Server 
+- 1. install JSON Server 
 	``` npm install -g json-server  ```
 
---> -g is use for the globally install 
+``` -g is use for the globally install ```
 
-2. create a file as DB.json 
+- 2. create a file as DB.json 
 ```
 {
   "employees": [

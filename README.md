@@ -505,7 +505,7 @@ How to Make your own RestAPI ?
 }
 ```
 3. Run the Server 
-json-server --watch DB.json 
+``` json-server --watch DB.json ```
 
 **you get the link of local server **
 --

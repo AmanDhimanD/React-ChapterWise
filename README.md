@@ -475,7 +475,7 @@ export default App;
 How to Make your own RestAPI ? 
 
 - 1. install JSON Server 
-	``` npm install -g json-server  ```
+``` npm install -g json-server  ```
 
 ``` -g is use for the globally install ```
 
@@ -510,14 +510,14 @@ How to Make your own RestAPI ?
 **you get the link of local server **
 --
 For change the Port use this command
--->json-server --watch db.json --port 3004
+```json-server --watch db.json --port 3004```
 
 
 ## Create a Search Button with UseEffect() Hook 
 
-```
-Step to Create a search Bar in react js 
-https://www.freecodecamp.org/news/build-a-search-filter-using-react-and-react-hooks/amp/
+
+-Step to Create a search Bar in react js 
+```https://www.freecodecamp.org/news/build-a-search-filter-using-react-and-react-hooks/amp/```
 -----
 1. use effect with axios 
 2. map the data

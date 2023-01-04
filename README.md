@@ -513,3 +513,104 @@ For change the Port use this command
 -->json-server --watch db.json --port 3004
 
 ```
+## Create a Search Button with UseEffect() Hook 
+
+```
+Step to Create a search Bar in react js 
+https://www.freecodecamp.org/news/build-a-search-filter-using-react-and-react-hooks/amp/
+-----
+1. use effect with axios 
+2. map the data
+
+Example:
+ const [APIData, setAPIData] = useState([]);
+  useEffect(() => {
+    axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
+      setAPIData(response.data);
+    });
+  }, []);
+
+  return (
+    <div style={{ padding: 20 }}>
+      <input icon="search" placeholder="Search..." />
+        {APIData.map((item) => {
+            return (
+              <>
+                <p>{item.name}</p>
+                <p>{item.email}</p>
+              </>
+          );
+        })}
+    </div>
+
+
+3. useState for state managing 
+const [searchInput, setSearchInput] = useState('');
+
+and function 
+const searchItems = () => {
+        
+}
+
+
+4. Complete Structure
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+export default function TestingComponents() {
+  const [APIData, setAPIData] = useState([]);
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    axios.get(`https://jsonplaceholder.typicode.com/users`).then((response) => {
+      setAPIData(response.data);
+    });
+  }, []);
+
+  const searchItems = (searchValue) => {
+    setSearchInput(searchValue);
+    if (searchInput !== "") {
+      const filteredData = APIData.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(APIData);
+    }
+  };
+
+  return (
+    <div style={{ padding: 20 }}>
+      <input
+        icon="search"
+        placeholder="Search..."
+        onChange={(e) => searchItems(e.target.value)}
+      />
+      <div style={{ marginTop: 20 }}>
+        {searchInput.length > 1
+          ? filteredResults.map((item) => {
+              return (
+                <>
+                  <p>{item.name}</p>
+                  <p>{item.email}</p>
+                </>
+              );
+            })
+          : APIData.map((item) => {
+              return (
+                <>
+                  <p>{item.name}</p>
+                  <p>{item.email}</p>
+                </>
+              );
+            })}
+      </div>
+    </div>
+  );
+}
+
+```

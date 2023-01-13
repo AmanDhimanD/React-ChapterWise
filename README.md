@@ -615,3 +615,4 @@ export default function TestingComponents() {
 ```
 
 ## Use The Params() Method 
+- App.js -> Call the React Router with the :id 

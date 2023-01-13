@@ -621,3 +621,7 @@ export default function TestingComponents() {
         <Route path="/coin/:d" element={<Coin />}  />
 </Routes>
 ```
+- Make one Page as COIN Component
+```
+
+```

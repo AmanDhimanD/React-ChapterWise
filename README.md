@@ -3,8 +3,6 @@
 - 1. JSX
 - 2. React Router
 
-
-
 # 1. Props
 Props come from properties and are a fundamental concept that underlies a lot of things in React. With it, we can transmit data between components. This data can have any type ( String, Int, Array, Object, etc.). This way, we can create and style components without the need for static values.
 # 2. State
@@ -616,4 +614,4 @@ export default function TestingComponents() {
 }
 ```
 
--- No
+## Use The Params() Method 

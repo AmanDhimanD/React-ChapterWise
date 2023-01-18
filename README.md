@@ -706,6 +706,7 @@ export default Coin;
 
 **Finally Done**
 ---------------------------------------------------------------------------------------------------------------------
+
 # Create a ReactJS app with MongoDB connection
 
 In this Project we explain the some functionality of the Login and singup page
@@ -735,7 +736,67 @@ and then
 
 
 
+- Create a some files 
+    - index.js
+```
+const express = require("express");
+//const mongoose = require('mongoose')
+require("../backend/db/config");
+const User = require("../backend/db/User");
+const cors = require("cors");
+const app = express();
 
+app.use(express.json()); //api post krne par jo data aya hai wo json 
+//me aajyga
+app.use(cors()); // to fix the cors error in the app
+app.post("/register", async (req, res) => {
+  //res.send("Api in progess.....")
+  let user = new User(req.body);
+  let result = await user.save();
+  /* We dont have to show password in the Console Application in JSON Formate for this */
+  /* and Also we can not use the SELECT method as the login for this we use this method */
 
+  result = result.toObject(); // Save as the object then delete the Result Function
+  delete result;
 
- 
+  res.send(result); //save posted data in the server (or api )
+});
+
+//Login Function
+app.post("/login", async (req, res) => {
+  /* This if is use to Entering the PAssword and Email id  */
+  /* Without one cannt be login  */
+  if (req.body.password && req.body.email) {
+    /* this select is use to not showing the Password in the Response */
+    let user = await User.findOne(req.body).select("-password");
+    if (user) {
+      res.send(user);
+    } else {
+      res.send({ result: "No User Found" });
+    }
+  } else {
+    res.send({ result: "No User Found" });
+  }
+});
+
+//Sign Up Function
+
+app.listen(5000);
+/* const connectDB = async () => {
+    mongoose.set("strictQuery", false);
+    mongoose.connect("mongodb://localhost:27017/e-comm");
+    const productSchema = new mongoose.Schema({})
+    const product = mongoose.model("products", productSchema)
+    const data = await product.find()
+    console.warn(data)
+}
+ */
+/* app.get("/",(req,res)=>{
+    res.send("App is Working..............")
+})
+ */
+
+//connectDB()
+//app.listen(5001);
+
+```

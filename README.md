@@ -836,3 +836,270 @@ npx create-react-app ./
         - Component
             - Login.js
             - PrivateComponent.js
+
+```
+npm install react-router-dom 
+```
+#### App.js 
+```
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
+import Login from "./component/Login";
+import PrivateComponent from "./component/PrivateComponent";
+import Nav from "./Nav";
+import SignUp from "./SignUp";
+
+
+function App() {
+  return (
+    <div className="App">
+      <BrowserRouter>
+        <Nav />
+        <Routes>
+          {/* Private Components are use to handle the Session*/}
+          <Route element={<PrivateComponent />}>
+            <Route path="/" element={<h1>Product Component</h1>} />
+            <Route path="/add" element={<h1>Add Component</h1>} />
+            <Route path="/update" element={<h1>Update Component</h1>} />
+            <Route path="/logout" element={<h1>LogOut Component</h1>} />
+            <Route path="/profile" element={<h1>Profile Component</h1>} />
+          </Route>
+          {/* Not need to the sign up tag for the sesion */}
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+}
+
+export default App;
+
+```
+#### Nav.js 
+```
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+const Nav = () => {
+  const auth = localStorage.getItem("user");
+  const navigate = useNavigate();
+  //const Name = (JSON.parse(auth).name)
+  //const capitalized = Name.charAt(0).toUpperCase() + Name.slice(1);
+
+  /* To show the log out option in the list before calling this function it is normally Show the SignUp option over there */
+  const logOut = () => {
+    localStorage.clear();
+    navigate("/signup");
+  };
+  return (
+    <>
+      <div>
+        {auth ? (
+          <ul>
+            <li>
+              <Link to="/">Product </Link>
+            </li>
+            <li>
+              <Link to="/add">Add Products </Link>
+            </li>
+            <li>
+              <Link to="/update">Update Product </Link>
+            </li>
+            {/*  <li>
+            <Link to="/logout">LogOut </Link>
+          </li> */}
+            <li>
+              <Link to="/profile">Profile </Link>
+            </li>
+
+            <Link to="/login" onClick={logOut}>
+              LogOut {JSON.parse(auth).name}
+            </Link>
+          </ul>
+        ) : (
+          <>
+            <ul>
+              <Link to="/signup">SignUp </Link> <br />
+              <Link to="/login">Login </Link>
+            </ul>
+          </>
+        )}
+      </div>
+    </>
+  );
+};
+
+export default Nav;
+```
+
+#### SignUp
+```
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const SignUp = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    /* use effect for the check the user is already Log in  */
+    const auth = localStorage.getItem("user"); 
+    if (auth) {
+      navigate("/");
+    }
+  });
+  const collectData = async () => {
+    //console.log(name, email, password);
+    let result = await fetch("http://localhost:5000/register", {
+      method: "post",
+      body: JSON.stringify({ name, email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    //console.warn(result)
+    //localStorage.setItem("user", JSON.stringify(result));
+    //navigate("/login");
+    
+    if (result.name) {
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/login");
+       //navigate("/");
+     } else {
+       alert("Please Fill up the data");
+     }
+  };
+  return (
+    <div>
+      <h2>Register</h2>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={(e) => setName(e.target.value)} required
+      />{" "}
+      <br /> <br />
+      <input
+        type="text"
+        placeholder="Enter your Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} required
+      />
+      <br />
+      <br />
+      <input
+        type="password"
+        placeholder="Enter your password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)} required
+      />{" "}
+      <br />
+      <br />
+      <button type="button" onClick={collectData}>
+        Sign Up
+      </button>
+    </div>
+  );
+};
+
+export default SignUp;
+
+```
+
+#### Login.js 
+```
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  useEffect(() => {
+    /* use effect for the check the user is already Log in  */
+    /* To make sure no route to pass the link in the address bar direct to navigate the page */
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/");
+    }
+  }, []);
+  const handleLogin = async () => {
+    //console.warn(email,password)
+    let result = await fetch("http://localhost:5000/login", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    result = await result.json();
+    //console.warn(result);
+
+    if (result.name) {
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/");
+    } else {
+      alert("Please enter connect Details");
+    }
+  };
+  return (
+    <>
+      <div>
+        <h2>Login </h2>
+        <input
+          type="text"
+          placeholder="Enter the Email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />{" "}
+        <br /> <br />
+        <input
+          type="password"
+          placeholder="Enter the Password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />{" "}
+        <br /> <br />
+        <button onClick={handleLogin}>Login</button>
+      </div>
+    </>
+  );
+};
+
+export default Login;
+```
+
+#### PrivateComponent
+```
+import React from "react";
+import { Navigate, Outlet } from "react-router-dom";
+
+const PrivateComponent = () => {
+  const auth = localStorage.getItem("user");
+  return auth ? <Outlet /> : <Navigate to="signup" />;
+};
+
+export default PrivateComponent;
+
+```
+
+## in backend folder 
+- Run the server 
+```
+nodemon 
+```
+and 
+## in frontend folder 
+- Start the React App 
+```
+npm start
+```

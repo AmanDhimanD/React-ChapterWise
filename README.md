@@ -800,3 +800,27 @@ app.listen(5000);
 //app.listen(5001);
 
 ```
+- Create a folder in backend
+    - db 
+        - config.js
+        - User.js
+
+- in config.js 
+```
+const mongoose = require("mongoose");
+mongoose.set("strictQuery", false);
+mongoose.connect("mongodb://localhost:27017/e-comm", { useNewUrlParser: true })
+```
+- in User.js 
+    - Create a model 
+```
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  password: String
+});
+module.exports = mongoose.model("users", userSchema);
+
+```

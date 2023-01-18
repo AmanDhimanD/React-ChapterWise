@@ -678,4 +678,37 @@ const Coin = () => {
 export default Coin;
 
 ```
-# Shod
+# Step the MongoDB compass for ReactJS
+
+- Open the Compass Exe
+- Make a New Connection ( copy the URL for local host )
+
+- Create a **Database** 
+- Like -> **e-comm**
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/tdrsxmfn452dg95sgwkw.png)
+
+- Create a **Collection** ( _or in RDBMS called Table_ )
+
+**products** and **users** is the collectiions
+
+- Add the **Data**
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/jxi02zx0lpre0vo92q7m.png)
+
+- in insert document 📃 Add some demo data 
+
+
+![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f1hb7h2exv45oajtvvni.png)
+
+
+**Finally Done**
+
+
+
+
+
+
+
+
+ 

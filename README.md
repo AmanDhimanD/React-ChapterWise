@@ -705,7 +705,32 @@ export default Coin;
 
 
 **Finally Done**
+---------------------------------------------------------------------------------------------------------------------
+# Create a ReactJS app with MongoDB connection
 
+In this Project we explain the some functionality of the Login and singup page
+with MongoDB Data connection.
+
+
+
+
+## Setup to start 
+    Make to folders 📂 
+- backend
+- froentend
+
+
+## In the Backend Folder 
+install these Required Packages copy this below code and run in cmd
+
+```
+npm init 
+```
+and then
+
+```bash
+  npm i mongooses nodemon express
+```
 
 
 

@@ -824,3 +824,15 @@ const userSchema = new mongoose.Schema({
 module.exports = mongoose.model("users", userSchema);
 
 ```
+## In frotend folder 
+Install create app 
+```
+npx create-react-app ./
+```
+- in src folder create a new file 
+    - src
+        - Nav.js
+        - Signup.js
+        - Component
+            - Login.js
+            - PrivateComponent.js

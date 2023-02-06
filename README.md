@@ -1104,3 +1104,5 @@ and
 npm start
 ```
 # Finally
+
+## Example of Params 

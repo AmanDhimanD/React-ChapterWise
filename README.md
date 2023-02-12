@@ -824,6 +824,10 @@ const userSchema = new mongoose.Schema({
 module.exports = mongoose.model("users", userSchema);
 
 ```
+- Step in the Compas to create a structure of the model of db 
+```
+
+```
 ## In frotend folder 
 Install create app 
 ```

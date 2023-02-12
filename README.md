@@ -824,6 +824,15 @@ const userSchema = new mongoose.Schema({
 module.exports = mongoose.model("users", userSchema);
 
 ```
+# If nodemon (error) 
+- Run this command in a POWER shell (run as administrator)
+```
+Get-ExecutionPolicy
+```
+```
+Set-ExecutionPolicy Unrestricted
+```
+
 - Step in the Compas to create a structure of the model of db 
 ```
 

@@ -1121,3 +1121,4 @@ npm start
 ## Example of Params 
 
 ### Code for the Next Project
+https://dev.to/raynecoder/how-to-add-loading-effect-in-reactjs-dag
